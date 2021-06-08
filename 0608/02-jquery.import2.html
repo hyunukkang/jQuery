@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- 기본 css, js import 순서 -->
+<!-- <link rel="stylesheet" href="style.css"> -->
+<style>
+    img {
+        width: 300px;
+    }
+    .container {
+        text-align: center;
+    }
+    button {
+        padding: 1rem;
+        background: #2929;
+    }
+</style>
+<!-- local에 있는 jQuery 파일 import -->
+<script src="./js/jquery-3.6.0.min.js"></script>
+<!-- <script src="./script.js"></script> -->
+<script>
+    // 1번 jquery 준비 구문
+    // $(document).ready(function(){
+    //     // js/jquery 코드 작성
+    // })
+
+
+    // 2번 jquery 준비 구문 - 추천 - 실행이 앞에서 실행
+    $(function(){
+        // console.log('>>>>1');
+        // js구문
+        // var btnHide = document.querySelector("#btnHide");
+        // var imgEle = document.querySelector('img');
+        // btnHide.addEventListener('click', function(){
+        //     imgEle.style.display = "none";
+        // })
+        // js, jquery 실행문 다 작성 가능
+        // jquery 구문
+        // $가 앞에 붙었ㄷ으면 무조건 jquery 구문이다
+        // $(선택자 id#,class.,tagName)
+        $('btnShow').click(function(){
+            // js코드와 혼용해서 사용 가능하다
+            $("img").show();
+        })
+        $("#btnHide").click(function(){
+            $("img").hide();
+        })
+        
+        var h1 = document.querySelector('h1');
+        console.log(h1);
+
+        var $h1 = $('h1');
+        console.log($h1);
+        console.log($h1[0]);
+        // jquery는 배열로 들어옴
+        // eqyivalent
+        $h1.eq(0).css('color', 'red');
+
+
+        var $h1 = $('h1');
+        var $idH1 = $('#h1');
+        var $classH1 = $('.h1');
+
+        console.log($h1);
+        console.log($idH1);
+        console.log($classH1);
+        console.log($idH1.eq(0));
+
+    })
+</script>
+<title>jquery import2</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>title</h1>
+        <h1 id="h1">title</h1>
+        <h1 class="h1">title</h1>
+        <div class="controls">
+            <button id="btnShow">show</button>
+            <button id="btnHide">hide</button>
+        </div>
+        <img src="https://img.sbs.co.kr/newimg/news/20210205/201518043_1280.jpg" alt="">
+
+        <!-- jquery는 유사배열이다 $는 jquery이므로 유사배열 반환 -->
+    </div>
+
+
+</body>
+</html>
