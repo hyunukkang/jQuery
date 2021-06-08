@@ -28,7 +28,7 @@
     // })
 
 
-    // 2번 jquery 준비 구문 - 추천 - 실행이 앞에서 실행
+    // 2번 jquery 준비 구문 - 추천 - 실행이 앞에서 부터 됨
     $(function(){
         // console.log('>>>>1');
         // js구문
@@ -41,7 +41,7 @@
         // jquery 구문
         // $가 앞에 붙었ㄷ으면 무조건 jquery 구문이다
         // $(선택자 id#,class.,tagName)
-        $('btnShow').click(function(){
+        $('#btnShow').click(function(){
             // js코드와 혼용해서 사용 가능하다
             $("img").show();
         })
