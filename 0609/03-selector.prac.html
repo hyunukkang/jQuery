@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>selector simple prac</title>
+<style>
+    body {
+        text-align: center;
+    }
+    button {
+        padding: 1rem;
+        background: teal;
+        color: #eee;
+    }
+</style>
+</head>
+<body>
+    <div>
+        <!-- basic -->
+        <button id="btnDark">dark-theme</button>
+        <button id="btnWhite">white-theme</button>
+        <button id="btnShow">show</button>
+        <button id="btnHide">hide</button>
+        <button id="btnToggle">toggle</button>
+        <!-- slide -->
+        <button id="btnSlideDown">slideDown</button>
+        <button id="btnSlideUp">slideUp</button>
+        <button id="btnSlideToggle">slideToggle</button>
+
+        <!-- fade -->
+        <button id="btnFadeIn">fadeIn</button>
+        <button id="btnFadeOut">fadeout</button>
+        <button id="btnFadeToggle">fadeToggle</button>
+    </div>
+    <h1>title</h1>
+    <img src="https://img.hankyung.com/photo/202102/57569_110380_3719.jpg" alt="">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 누구를
+            var btnDark = $('#btnDark');
+            var btnWhite = $('#btnWhite');
+            var $title = $('h1');
+            const darkTheme = {'font-size': '3rem', 'color': 'red'}
+            /* 언제든지 사용가능하게 해야한다면 global로 적어주는게 베스트 */
+            var imgElement = $('img');
+            var $btnToggle = $('#btnToggle')
+            // jquery는 항상 $ 앞에 붙이기!!(jquery라는 추상화개념)
+
+            // 어떻게 하겠다
+            // 1번 dark 버튼을 누르면 배경색을 검정색으로 변환
+            btnDark.click(function(){
+                $('body').css('background', '#111');
+                $('img').css('width', 'auto');
+                // $title.css('font-size', '3rem');
+                // $title.css('color', 'red');
+                // 위 두개를 한번에 멀티스타일 적용
+                $title.css({'font-size': '3rem', 'color': 'red'});
+                const darkTheme = {'font-size': '3rem', 'color': 'red'}
+                $title.css(darkTheme);
+            })
+
+            // 2번 white버튼 > 하얀색으로 배경 변경
+            btnWhite.click(function(){
+                $('body').css('background', '#fff')
+                imgElement.css('width', '200px')
+            })
+
+            // 변수선언의 이유: 추상화
+            var $btnShow = $('#btnShow');
+            var $btnHide = $('#btnHide');
+            // show 버튼을 누르면 이지미 보이기 
+            $btnShow.on('click', function(){
+                imgElement.show();
+            });
+            
+            // show 버튼을 누르면 이지미 숨이기 
+            $btnHide.on('click', function(){
+                imgElement.hide();
+            });
+            
+            // toggle
+            $btnToggle.on('click', function(){
+                imgElement.toggle();/* show,hide 클릭 한번에 */
+            });
+
+            var $btnSlideDown = $('#btnSlideDown')
+            var $btnSlideUp = $('#btnSlideup')
+            var $btnSlideToggle = $('#btnSlideToggle')
+
+            // slide Down
+            $btnSlideDown.click(function(){
+                imgElement.slideDown();
+            })
+            // slide Up
+            $btnSlideUp.click(function(){
+                imgElement.slideUp();
+            })
+            
+            // slide Toggle
+            $btnSlideToggle.click(function(){
+                imgElement.slideToggle();
+            })
+            
+            
+            var btnFadeIn = $('#btnFadeIn');        
+            var btnFadeOut = $('#btnFadeOut');
+            var btnFadeToggle = $('#btnFadeToggle');        
+            
+            btnFadeIn.click(function(){
+                imgElement.fadeIn();
+            })
+            btnFadeOut.click(function(){
+                imgElement.fadeOut();
+            })
+            btnFadeToggle.click(function(){
+                    imgElement.fadeToggle();
+                })
+        })
+    </script>
+</body>
+</html>

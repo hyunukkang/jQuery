@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>addClass, remove, toggle</title>
+<style>
+    .desc {
+        background: teal;
+        color: #999;
+        padding: 2rem;
+    }
+    .dark {
+        background: #111;
+    }
+</style>
+</head>
+<body>
+
+    <div class="control">
+        <button id="btnAdd">add</button>
+        <button id="btnRemove">Remove</button>
+        <button id="btnToggle">Toggle</button>
+    </div>
+    <p class="desc">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, velit quisquam. Expedita est voluptate reprehenderit necessitatibus quis. Quis fuga ullam alias delectus fugiat. Possimus atque ipsa laborum, esse modi voluptas.
+    </p>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var $btnAdd = $('#btnAdd'),
+            $btnRemove = $('#btnRemove'),
+            $btnToggle = $('#btnToggle'),
+            $desc = $('.desc');
+
+            // add event
+            $btnAdd.click(function(){
+                $desc.addClass('dark');
+            })
+            // remove event
+            $btnRemove.click(function(){
+                $desc.removeClass('dark');
+            })
+
+            
+            console.log(">>>>>>>>>>");
+            console.log(this); /* window */
+            console.log(">>>>>>>>>>");
+            // var this = "";
+
+            // toggle event
+            $btnToggle.click(function(){
+                /* this는 해당 자기자신을 가르킴  - 유용하니 기억!!*/
+                /* this의 위치가 애매하면 console.log(this); 해보기 */
+                console.log(this);
+                $(this).toggleClass('dark');
+                // $desc.toggleClass('dark');
+            })
+    </script>
+</body>
+</html>
