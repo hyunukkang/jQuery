@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>dropdown</title>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    ul {
+        list-style: none;
+    }
+    .navbar {
+        color: coral;
+        text-align: center;
+        margin: 0 auto;
+        width: 600px;
+        display: flex;
+    }
+    .navbar a {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+    .navbar__item {
+        width: 200px;
+    }
+    .menu {
+        background: red;
+    }
+    .navbar__item:hover {
+        /* background: #000; */
+    }
+    .navbar__submenu a {
+        background: coral;
+        color: red;
+    }
+    .navbar__submenu a:hover {
+        background: #000;
+    }
+</style>
+</head>
+<body>
+
+    <nav>
+        <ul class="navbar">
+            <li class="navbar__item">
+                <a href="#" class="menu">
+                    menu1
+                </a>
+                <div class="navbar__submenu">
+                    <a href="#">sub-menu1</a>
+                    <a href="#">sub-menu2</a>
+                    <a href="#">sub-menu3</a>
+                    <a href="#">sub-menu4</a>
+                </div>
+            </li>
+            <li class="navbar__item">
+                <a href="#" class="menu">
+                    menu2
+                </a>
+                <div class="navbar__submenu">
+                    <a href="#">sub-menu1</a>
+                    <a href="#">sub-menu2</a>
+                    <a href="#">sub-menu3</a>
+                    <a href="#">sub-menu4</a>
+                </div>
+            </li>
+            <li class="navbar__item">
+                <a href="#" class="menu">
+                    menu3
+                </a>
+                <div class="navbar__submenu">
+                    <a href="#">sub-menu1</a>
+                    <a href="#">sub-menu2</a>
+                    <a href="#">sub-menu3</a>
+                    <a href="#">sub-menu4</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var $navbarItem = $(".navbar__item");
+        var $navbarSubMenu = $(".navbar__submenu");
+
+        $navbarSubMenu.hide();
+
+        console.log(typeof $navbarItem);
+        console.log(typeof ".navbar");
+
+
+        $navbarItem.mouseenter(function(){
+            $(this).children(".navbar__submenu").stop().slideDown();
+        })
+
+
+        $navbarItem.mouseleave(function(){
+            $(this).children(".navbar__submenu").stop().slideUp();
+        })
+    </script>
+
+</body>
+</html>

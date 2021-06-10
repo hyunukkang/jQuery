@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>multi modal</title>
+<style>
+    img {
+        max-width: 100%;
+    }
+    .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    z-index: 100;
+    }
+    .modal {
+        width: 400px;
+        background: #fff;
+        padding: 1rem;
+        border-radius: .5rem;
+        border: 1px solid #999;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .modal img {
+        /* width: 150px; */
+    }
+    .close__modal {
+        position: absolute;
+        top: -.5rem;
+        right: -.5rem;
+        /* font-size: 1.5rem; */
+        background: #fff;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        padding-bottom: 4px;
+        border: 1px solid #eee;
+        cursor: pointer;
+    }
+
+    .portfolio__title {
+        text-align: center;
+    }
+    .portfolio {
+        display: flex;
+    }
+    .portfolio__img {
+        padding: 1rem;
+    }
+</style>
+</head>
+<body>
+
+    <section>
+        <div class="container">
+            <h1 class="portfolio__title">portfolio</h1>
+            <div class="portfolio">
+                <a href="#" class="portfolio__img">
+                    <img src="./images/portfolio1.jpg" alt="">
+                </a>
+                <a href="#" class="portfolio__img">
+                    <img src="./images/portfolio2.jpg" alt="">
+                </a>
+                <a href="#" class="portfolio__img">
+                    <img src="./images/portfolio3.jpg" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="modal">
+                <img src="" alt="">
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 이미지를 클릭 했을때
+            var $portfolioImg = $('.portfolio__img');
+            var $overlay = $('.overlay');
+            $overlay.hide();
+            $portfolioImg.click(function(){
+                // 모달이 뜨고 이미지를 출력
+                var src = $(this).children('img').attr('src');
+                var $modalImg = $('.modal img')
+                console.log(src);
+                // modal에 있는 img 엘리먼트 src에 이미지 주소를 세팅
+                $modalImg.attr('src', src);
+                $overlay.show();
+            })
+            
+            $overlay.click(function(e){
+                console.log(e);
+                // target은 내가 클릭한 객체
+                // currentTarget은 이벤트가 발생한 객체
+                if(e.target == e.currentTarget){
+                    // target이라는 객체가 있다는것을 기억
+                    $(this).fadeOut();
+                }
+            })
+        })
+    </script>
+</body>
+</html>

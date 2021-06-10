@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>review</title>
+</head>
+<body>
+
+    <div class="container">
+        <button>
+            click!!
+        </button>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h1 class="center">Lorem ipsum dolor sit amet.</h1>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        // 변수 정의는 항상 위쪽으로~! - global(전역변수)라도 아래에 있으면 읽혀지지않음
+        $(function(){
+            var $center = $('.center');
+            console.log($center);
+        })
+        var $centerNext = $center.next().next();
+        var $centerPrev = $center.prev().prev();
+
+        $center.css("color", "blue")
+        var nextStyle = {
+            "color": "red",
+            "font-size": "3rem"
+        };
+        var prevStyle = {
+            "color": "coral",
+            "font-size": "3rem"
+        };
+        $centerNext.css({
+            "color": "red",
+            "font-size": "3rem"
+        })
+        $centerPrev.css({
+            "color": "coral",
+            "font-size": "3rem"
+        })
+        $centerNext.css(nextStyle);
+        $centerPrev.css(prevStyle);
+        // '$' 는 jQuery를 명시 - jQuery 를 활용할때는 반드시 적어주기
+
+        // var this;
+        console.log(this);
+
+        var $btn = $('button');
+        $btn.click(function(event){
+            // event 객체는 이벤트가 발생한 함수에 매개변수로 전달된다
+            console.log(event);
+
+            // this는 선언된 위치에 따라 다른 객체가 담긴다
+            console.log(this);
+            $(this).css('background', "blue");
+        })
+        
+    </script>
+</body>
+</html>

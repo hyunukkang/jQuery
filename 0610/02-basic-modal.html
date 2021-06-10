@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/thinline.css">
+<title>basic modal</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.5);
+        z-index: 100;
+    }
+    .modal {
+        width: 400px;
+        background: #fff;
+        padding: 1rem;
+        border-radius: .5rem;
+        border: 1px solid #999;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    .modal img {
+        width: 150px;
+    }
+    .close__modal {
+        position: absolute;
+        top: -.5rem;
+        right: -.5rem;
+        /* font-size: 1.5rem; */
+        background: #fff;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        padding-bottom: 4px;
+        border: 1px solid #eee;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+
+    <button>
+        show modal
+    </button>
+
+    <div class="overlay">
+        <div class="modal">
+            <span class="close__modal">x</span>
+            <div class="modal__content">
+                <h1>introduce</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate ab rem, expedita omnis dolor architecto deleniti eligendi, nihil, eaque exercitationem dolores officia ullam quidem cum obcaecati modi harum et atque.</p>
+                <img src="https://img8.yna.co.kr/etc/inner/KR/2019/05/01/AKR20190501059500005_01_i_P4.jpg
+                " alt="">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        var $modal = $('.modal');
+        var $overlay = $('.overlay');
+        var $btn = $('button');
+        var $btnClose = $('.close__modal')
+        
+        $overlay.hide();
+        $btn.click(function(){
+            $overlay.fadeIn();
+        })
+        $btnClose.click(function(){
+            $overlay.fadeOut();
+        })
+        $overlay.click(function(e){
+            console.log(e);
+            // target은 내가 클릭한 객체
+            // currentTarget은 이벤트가 발생한 객체
+            if(e.target == e.currentTarget){
+                // target이라는 객체가 있다는것을 기억
+                $(this).fadeOut();
+            }
+        })
+    </script>
+</body>
+</html>

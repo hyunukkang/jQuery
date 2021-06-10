@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 <title>jquery accordion</title>
 <style>
+
     * {
         margin: 0;
         padding: 0;
@@ -94,7 +95,7 @@
           - title 객체 필요
           - click 이벤트 필요
           - slideToggle();
-     -->
+    -->
     <script>
         var $skillsTitle = $('.skills__title')
         var $skillsDesc = $('.skills__desc');
@@ -110,9 +111,9 @@
             // console.log($(this).siblings);
                 $skillsDesc.stop().slideUp();
                 $(this).siblings().stop().slideToggle();
-                $skillsIcon.toggleClass('visible');
-            })
-            
+                $skillsIcon.toggleClass('visible'); /* 사라졌다 / 보였다 */
+        })
+        
     </script>
 </body>
 </html>
