@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+}
+ul {
+    list-style: none;
+}
+.main__banner img {
+    width: 100%;
+}
+/* arrow */
+/* 개발자 도구로 해당 클래스명을 보고 스타일!! */
+/* 개발자도구로 부모요소..자식요소 등.. 구조 확인하며 작업 */
+.slick-prev,
+.slick-next
+{
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+    border: none;
+    background: rgba(0,0,0,.6);
+    cursor: pointer;
+}
+.slick-prev {
+    left: 0;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* z-index: 100; */
+}
+.slick-next {
+    right: 0;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* z-index: 100; */
+}
+.slick-prev:after,
+.slick-next:after {
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: unicons-line;
+}
+.slick-prev:after {
+    content: '\eb79';
+}
+.slick-next:after {
+    content: '\eb6d';
+}
+/* progress */
+/* 개발자도구로 구조,속성값 파악하며 작업 */
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: -2rem;
+}
+/* active 된 dot */
+.slick-dots li.slick-active button {
+    background: #fff;
+}
+/* 나머지 dot */
+.slick-dots li button {
+    background: #666;
+    width: 100px;
+    height: 5px;
+    font-size: 0;
+    border: none;
+    cursor: pointer;
+}

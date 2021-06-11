@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+}
+ul {
+    list-style: none;
+}
+#portfolio {
+    margin-top: 100px;
+}
+/* reusable css */
+.slider__button {
+    text-decoration: none;
+    color: inherit;
+    border-radius: .5rem;
+    padding: 1rem;
+    background: #02343F;
+    color: #F0EDCC;
+    width: 100px;
+    text-align: center;
+}
+.slider__button:hover {
+    background: #012129;
+}
+
+.custom__slider {
+    width: 660px;
+    margin: 0 auto;
+}
+.slider__content {
+    display: flex;
+}
+.slider__img {
+    flex: 1;
+    /* padding: 1rem; */
+}
+.slider__img img {
+    border-radius: .5rem;
+}
+.slider__desc {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.slider__desc p {
+    margin: 1rem 0;
+}
+/* arrow */
+/* 개발자 도구로 해당 클래스명을 보고 스타일!! */
+/* 개발자도구로 부모요소..자식요소 등.. 구조 확인하며 작업 */
+.slick-prev,
+.slick-next
+{
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    font-size: 0;
+    border: none;
+    background: rgba(0,0,0,.6);
+    cursor: pointer;
+}
+.slick-prev {
+    left: 0;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* z-index: 100; */
+}
+.slick-next {
+    right: 0;
+    /* position: absolute; */
+    /* top: 50%; */
+    /* z-index: 100; */
+}
+.slick-prev:after,
+.slick-next:after {
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: unicons-line;
+}
+.slick-prev:after {
+    content: '\eb79';
+}
+.slick-next:after {
+    content: '\eb6d';
+}
+/* progress */
+/* 개발자도구로 구조,속성값 파악하며 작업 */
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+/* active 된 dot */
+.slick-dots li.slick-active button {
+    background: skyblue;
+}
+/* 나머지 dot */
+.slick-dots li {
+    margin-right: .5rem;
+}
+.slick-dots li button {
+    background: #666;
+    width: 15px;
+    height: 15px;
+    font-size: 0;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
